@@ -1,0 +1,55 @@
+﻿@model PetShop.Models.Animal
+
+@{ ViewData["Title"] = "Delete"; }
+
+<h3>Deseja remover o animal?</h3>
+<hr />
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeAnimal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeAnimal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MotivoInternacao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MotivoInternacao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoSaude)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EstadoSaude)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeTutor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeTutor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefoneTutor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TelefoneTutor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AlojamentoId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AlojamentoId)
+        </dd>
+
+    </dl>
+
+    <form action="@Url.Action("Deletar", "Animal")" method="post">
+        <input type="hidden" asp-for="Id" />
+        <a class="btn btn-primary" href="@Url.Action("Consultar", "Animal")"> Voltar</a>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </form>
+</div>

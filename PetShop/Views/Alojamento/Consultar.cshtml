@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PetShop.Models.Alojamento>
+
+@{ ViewData["Title"] = "Alojamento"; }
+
+<h2>Consultar</h2>
+
+<div class="container-fluid mt-4">
+    <div class="row">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().Id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().Status)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+
+            <td>
+                <div class="text-center">
+                    <a class="btn btn-light" href="@Url.Action("Verificar", "Alojamento", new { id = item.Id })">Verificar</a>
+                </div>
+            </td>
+        </tr>}
+
+                </tbody>
+            </table>
+        </div>
+    </div>

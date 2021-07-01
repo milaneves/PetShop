@@ -1,0 +1,38 @@
+﻿@model PetShop.Models.AlojamentoViewModel
+
+@{ ViewData["Title"] = "Alojamento"; }
+
+@using (Html.BeginForm("DesvincularAnimal", "Alojamento", FormMethod.Post))
+{
+@Html.HiddenFor(model => model.Id)
+<div class="container-fluid mt-4">
+    <div class="form-group">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NomeAnimal)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NomeAnimal)
+            </dd>
+
+            <div class="col-sm-5">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StatusAlojamento, new { @class = "control-label col-sm-12" })
+                    <div class="col-sm-12">
+
+                        @Html.DropDownListFor(model => model.StatusAlojamento, ViewBag.lstStatusAlojamento as SelectList, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.StatusAlojamento, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </dl>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="form-group col-lg-6">
+            <input type="submit" class="btn btn-success" autocomplete="off" value="Salvar" />
+            <a class="btn btn-primary" href="@Url.Action("Consultar", "Alojamento")">Cancelar</a>
+        </div>
+    </div>
+</div>
+ }
