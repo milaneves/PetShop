@@ -12,7 +12,7 @@ jobs:
         
   deploy-dev:
     runs-on: ubuntu-latest
-    enviroment:
+    environment:
       name: dev
     needs: build  
     steps:
@@ -21,16 +21,16 @@ jobs:
  
   deploy-hmg:
     runs-on: ubuntu-latest
-    enviroment:
+    environment:
       name: dev
     needs: deploy-dev  
     steps:
       - name: Run a one-line script
         run: echo Deploy HMG     
         
- deploy-prd:
+  deploy-prd:
     runs-on: ubuntu-latest
-    enviroment:
+    environment:
       name: dev
     needs: deploy-hmg 
     steps:
